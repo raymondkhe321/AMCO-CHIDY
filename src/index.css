@@ -1,0 +1,487 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Luxury Animation Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* Luxury Reveal Animation */
+.animate-reveal {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Luxury Product Card */
+.luxury-product-card {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+  position: relative;
+}
+
+.luxury-product-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  padding: 2px;
+  background: linear-gradient(135deg, transparent, rgba(217, 119, 6, 0.1), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.luxury-product-card:hover::before {
+  opacity: 1;
+}
+
+/* Luxury Category Card */
+.luxury-category-card {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+  position: relative;
+  overflow: hidden;
+}
+
+.luxury-category-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent, rgba(217, 119, 6, 0.15), transparent);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.luxury-category-card:hover::after {
+  opacity: 1;
+}
+
+/* Luxury Button */
+.luxury-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.luxury-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.luxury-button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Luxury Filter Button */
+.luxury-filter-button {
+  opacity: 0;
+  animation: fadeIn 0.4s ease-out forwards;
+  position: relative;
+  overflow: hidden;
+}
+
+.luxury-filter-button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent, rgba(217, 119, 6, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.luxury-filter-button:hover::after {
+  opacity: 1;
+}
+
+/* Luxury Search Wrapper */
+.luxury-search-wrapper input:focus {
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.1);
+}
+
+/* Luxury Image Container */
+.luxury-image-container::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.luxury-image-container:hover::after {
+  opacity: 1;
+  animation: shimmer 1.5s ease-in-out;
+}
+
+/* Luxury Thumbnail */
+.luxury-thumbnail {
+  opacity: 0;
+  animation: scaleIn 0.4s ease-out forwards;
+}
+
+/* Luxury Detail Card */
+.luxury-detail-card {
+  position: relative;
+}
+
+.luxury-detail-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  padding: 2px;
+  background: linear-gradient(135deg, transparent, rgba(217, 119, 6, 0.15), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.luxury-detail-card:hover::before {
+  opacity: 1;
+}
+
+/* Luxury Add to Cart Button */
+.luxury-add-to-cart {
+  position: relative;
+  overflow: hidden;
+}
+
+.luxury-add-to-cart::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+.luxury-add-to-cart:hover::before {
+  width: 400px;
+  height: 400px;
+}
+
+/* Luxury Cart Item */
+.luxury-cart-item {
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* Luxury Quantity Control */
+.luxury-quantity-control button {
+  position: relative;
+  overflow: hidden;
+}
+
+.luxury-quantity-control button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(217, 119, 6, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.luxury-quantity-control button:hover::after {
+  opacity: 1;
+}
+
+/* Luxury Summary Card */
+.luxury-summary-card {
+  position: relative;
+}
+
+.luxury-summary-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  padding: 2px;
+  background: linear-gradient(135deg, rgba(217, 119, 6, 0.2), transparent, rgba(217, 119, 6, 0.2));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.luxury-summary-card:hover::before {
+  opacity: 1;
+}
+
+/* Luxury Checkout Button */
+.luxury-checkout-button,
+.luxury-place-order {
+  position: relative;
+  overflow: hidden;
+}
+
+.luxury-checkout-button::before,
+.luxury-place-order::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.luxury-checkout-button:hover::before,
+.luxury-place-order:hover::before {
+  left: 100%;
+}
+
+/* Luxury Success Message */
+.luxury-success-message {
+  animation: fadeInUp 0.4s ease-out;
+}
+
+/* Luxury Empty State */
+.luxury-empty-state {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Luxury Back Button */
+.luxury-back-button {
+  position: relative;
+}
+
+.luxury-back-button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #d97706, #f59e0b);
+  transition: width 0.3s ease;
+}
+
+.luxury-back-button:hover::after {
+  width: 100%;
+}
+
+/* Luxury Delete Button */
+.luxury-delete-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.luxury-delete-button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(239, 68, 68, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 0.5rem;
+}
+
+.luxury-delete-button:hover::after {
+  opacity: 1;
+}
+
+/* Luxury Continue Button */
+.luxury-continue-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.luxury-continue-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent, rgba(0, 0, 0, 0.05), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.luxury-continue-button:hover::before {
+  opacity: 1;
+}
+
+/* Luxury Order Summary */
+.luxury-order-summary,
+.luxury-payment-card {
+  position: relative;
+}
+
+.luxury-order-summary::before,
+.luxury-payment-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  padding: 2px;
+  background: linear-gradient(135deg, transparent, rgba(217, 119, 6, 0.1), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.luxury-order-summary:hover::before,
+.luxury-payment-card:hover::before {
+  opacity: 1;
+}
+
+/* Luxury Checkout Item */
+.luxury-checkout-item {
+  opacity: 0;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Luxury Bank Transfer */
+.luxury-bank-transfer {
+  position: relative;
+  overflow: hidden;
+}
+
+.luxury-bank-transfer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(217, 119, 6, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.luxury-bank-transfer:hover::after {
+  opacity: 1;
+}
+
+/* Luxury Success Card */
+.luxury-success-card {
+  animation: scaleIn 0.6s ease-out;
+}
+
+/* Luxury Success Icon */
+.luxury-success-icon {
+  animation: scaleIn 0.5s ease-out;
+}
+
+/* Luxury Bank Details */
+.luxury-bank-details {
+  position: relative;
+  overflow: hidden;
+}
+
+.luxury-bank-details::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.luxury-bank-details:hover::before {
+  opacity: 1;
+}
+
+/* Smooth Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d97706;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b45309;
+}
